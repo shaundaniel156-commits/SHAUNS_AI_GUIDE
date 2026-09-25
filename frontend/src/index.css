@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+
+/* Dark mode is driven by a `.dark` class on <html> (see ThemeContext). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens.
+ * Semantic colours (canvas, surface, ink, line, …) are CSS variables so that
+ * light/dark themes swap in one place and components never need `dark:` variants
+ * for ordinary surfaces and text.
+ */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Brand — trustworthy blue */
+  --color-brand-50: #eef4fc;
+  --color-brand-100: #d9e6f8;
+  --color-brand-200: #b5cdf1;
+  --color-brand-300: #86ade6;
+  --color-brand-400: #5287d8;
+  --color-brand-500: #2f6ccc;
+  --color-brand-600: #1f5fbf;
+  --color-brand-700: #1a4e9d;
+  --color-brand-800: #173f7c;
+  --color-brand-900: #132f5b;
+
+  /* Accent — calm teal used sparingly for AI-related elements */
+  --color-accent-50: #ecfaf6;
+  --color-accent-100: #cff2e8;
+  --color-accent-500: #1a9c80;
+  --color-accent-600: #137f68;
+  --color-accent-700: #0f6554;
+
+  /* Semantic surfaces (light) */
+  --color-canvas: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-surface-2: #f8f9fb;
+  --color-surface-3: #eef0f4;
+  --color-line: #e3e6ec;
+  --color-line-strong: #cfd4dc;
+  --color-ink: #121826;
+  --color-ink-2: #4a5263;
+  --color-ink-3: #6b7385;
+  --color-ink-inverse: #ffffff;
+  --color-brand-soft: #eef4fc;
+  --color-brand-ink: #1a4e9d;
+
+  /* Status (competency levels & states). Always paired with an icon + label. */
+  --color-good: #15803d;
+  --color-good-soft: #e8f6ec;
+  --color-good-ink: #166534;
+  --color-warn: #c47f00;
+  --color-warn-soft: #fdf4e1;
+  --color-warn-ink: #8a5a00;
+  --color-bad: #c9372c;
+  --color-bad-soft: #fdecea;
+  --color-bad-ink: #a12a21;
+  --color-info-soft: #eef4fc;
+
+  /* Chart series (validated default palette, light steps) */
+  --color-series-1: #2a78d6;
+  --color-series-2: #eb6834;
+  --color-series-3: #1baf7a;
+  --color-grid: #e7e9ee;
+}
+
+.dark {
+  --color-canvas: #0f131a;
+  --color-surface: #161b24;
+  --color-surface-2: #1b212c;
+  --color-surface-3: #232a36;
+  --color-line: #2a3240;
+  --color-line-strong: #3a4454;
+  --color-ink: #eef1f6;
+  --color-ink-2: #b6bdca;
+  --color-ink-3: #8a93a3;
+  --color-brand-soft: #172338;
+  --color-brand-ink: #9cbcf0;
+
+  --color-good: #34a853;
+  --color-good-soft: #13261b;
+  --color-good-ink: #7fd49a;
+  --color-warn: #e0a42a;
+  --color-warn-soft: #2a2213;
+  --color-warn-ink: #f0c56a;
+  --color-bad: #e5675c;
+  --color-bad-soft: #2d1716;
+  --color-bad-ink: #f3a09a;
+  --color-info-soft: #172338;
+
+  --color-series-1: #3987e5;
+  --color-series-2: #d95926;
+  --color-series-3: #199e70;
+  --color-grid: #262d39;
+
+  color-scheme: dark;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-canvas text-ink font-sans antialiased;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+/* Consistent, visible keyboard focus */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}
