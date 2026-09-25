@@ -31,7 +31,7 @@ export function Topbar({ onOpenNav }: { onOpenNav: () => void }) {
         <Menu className="size-5" aria-hidden />
       </button>
       <p className="min-w-0 truncate text-base font-semibold text-ink">{titleForPath(role, pathname)}</p>
-      <span className="hidden rounded-full border border-dashed border-line-strong px-2 py-0.5 text-[11px] font-medium text-ink-3 sm:inline">
+      <span className="hidden whitespace-nowrap rounded-full border border-dashed border-line-strong px-2 py-0.5 text-[11px] font-medium text-ink-3 xl:inline">
         Prototype · demo data
       </span>
       <div className="ml-auto flex items-center gap-2">

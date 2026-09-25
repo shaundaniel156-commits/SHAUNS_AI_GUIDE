@@ -1,3 +1,4 @@
+import { DEMO_LEVEL_THRESHOLDS } from '../../lib/competency'
 import { cn } from '../../lib/cn'
 
 type ProgressTone = 'brand' | 'good' | 'warn' | 'bad'
@@ -53,7 +54,7 @@ export function ProgressBar({ value, max = 100, tone = 'brand', label, showValue
 }
 
 export function toneForScore(score: number): ProgressTone {
-  if (score >= 70) return 'good'
-  if (score >= 50) return 'warn'
+  if (score >= DEMO_LEVEL_THRESHOLDS.strength) return 'good'
+  if (score >= DEMO_LEVEL_THRESHOLDS.developing) return 'warn'
   return 'bad'
 }

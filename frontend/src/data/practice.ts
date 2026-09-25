@@ -32,3 +32,29 @@ export const HOME_SUPPORT = [
   { id: 'hs-2', focus: 'Percentages', title: 'Talk about halves and quarters', tip: 'When shopping or cooking, ask what half or a quarter of an amount is.', minutes: 5 },
   { id: 'hs-3', focus: 'General', title: 'Ask about their practice', tip: 'Ask your child to show you one practice question they found interesting this week.', minutes: 5 },
 ]
+
+/**
+ * DEMO — one sample question shown in the practice preview (UI only; answers
+ * are not checked or saved in this prototype).
+ */
+export const SAMPLE_PRACTICE_QUESTION = {
+  focus: 'Ratio and Proportion',
+  prompt: 'In a bag there are 2 red beads for every 3 blue beads. What is the ratio of red beads to blue beads?',
+  options: ['2 : 3', '3 : 2', '2 : 5', '5 : 2'],
+}
+
+/** Student self-report options (difficulty and confidence). */
+export const DIFFICULTY_OPTIONS = [
+  { id: 'easy', label: 'Easy' },
+  { id: 'okay', label: 'Okay' },
+  { id: 'difficult', label: 'Difficult' },
+] as const
+
+export const CONFIDENCE_OPTIONS = [
+  { id: 'confident', label: 'I feel confident' },
+  { id: 'unsure', label: 'A little unsure' },
+  { id: 'need_help', label: 'I need more help' },
+] as const
+
+export type DifficultyChoice = (typeof DIFFICULTY_OPTIONS)[number]['id']
+export type ConfidenceChoice = (typeof CONFIDENCE_OPTIONS)[number]['id']

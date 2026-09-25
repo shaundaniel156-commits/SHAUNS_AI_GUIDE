@@ -28,13 +28,13 @@ export function ConnectivityIndicator({ compact = false }: { compact?: boolean }
         aria-expanded={open}
         aria-haspopup="dialog"
         className={cn(
-          'inline-flex h-9 items-center gap-2 rounded-lg border border-line bg-surface px-2.5 text-sm font-medium hover:bg-surface-2',
+          'inline-flex h-9 shrink-0 items-center gap-2 whitespace-nowrap rounded-lg border border-line bg-surface px-2.5 text-sm font-medium hover:bg-surface-2',
           state.pill,
         )}
       >
         <Icon className={cn('size-4', status === 'syncing' && 'animate-spin [animation-duration:2s]')} aria-hidden />
         <span className={cn(compact && 'sr-only')}>{state.label}</span>
-        {!compact && status !== 'syncing' && <span className="hidden font-normal text-ink-3 xl:inline">· Last synced: {lastSynced}</span>}
+        {!compact && status !== 'syncing' && <span className="hidden whitespace-nowrap font-normal text-ink-3 min-[1500px]:inline">· Last synced: {lastSynced}</span>}
       </button>
       {open && (
         <div role="dialog" aria-label="Connection status" className="absolute right-0 z-40 mt-2 w-80 rounded-xl border border-line bg-surface p-4 shadow-xl">

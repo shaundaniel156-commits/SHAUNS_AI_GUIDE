@@ -25,8 +25,8 @@ export function UserMenu() {
       >
         <Avatar initials={user.initials} size="sm" />
         <span className="hidden text-left leading-tight md:block">
-          <span className="block text-sm font-medium text-ink">{user.name}</span>
-          <span className="block text-xs text-ink-3">{ROLE_LABEL[role]}</span>
+          <span className="block whitespace-nowrap text-sm font-medium text-ink">{user.name}</span>
+          <span className="block whitespace-nowrap text-xs text-ink-3">{ROLE_LABEL[role]}</span>
         </span>
         <ChevronDown className="hidden size-4 text-ink-3 md:block" aria-hidden />
       </button>

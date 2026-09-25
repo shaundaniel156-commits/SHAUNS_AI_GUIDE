@@ -57,3 +57,15 @@ export const ASSESSMENT_STATUS_LABEL: Record<Assessment['status'], string> = {
   awaiting_scores: 'Awaiting scores',
   completed: 'Completed',
 }
+
+/** A student's recorded results (as %) across their class's assessments, newest first. */
+export function getStudentAssessmentHistory(studentId: string, classId: string) {
+  return getAssessmentsByClass(classId)
+    .filter((a) => a.scoresEntered > 0)
+    .map((a) => {
+      const result = getAssessmentResults(a).find((r) => r.studentId === studentId)
+      const percent = result?.score != null ? Math.round((result.score / a.maxScore) * 100) : null
+      return { assessment: a, score: result?.score ?? null, percent }
+    })
+    .sort((x, y) => y.assessment.date.localeCompare(x.assessment.date))
+}

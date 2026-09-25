@@ -6,6 +6,29 @@ import { LoginPage } from './pages/auth/LoginPage'
 import { DashboardPage } from './pages/shared/DashboardPage'
 import { NotFoundPage } from './pages/shared/NotFoundPage'
 import { PagePlaceholder } from './pages/shared/PagePlaceholder'
+import { AcademicStructurePage } from './pages/admin/AcademicStructurePage'
+import { UsersPage } from './pages/admin/UsersPage'
+import { TeachersPage } from './pages/admin/TeachersPage'
+import { NotificationsPage } from './pages/shared/NotificationsPage'
+import { SettingsPage } from './pages/shared/SettingsPage'
+import { ParentDashboard } from './pages/parent/ParentDashboard'
+import { ParentChildrenPage } from './pages/parent/ParentChildrenPage'
+import { ParentProgressPage } from './pages/parent/ParentProgressPage'
+import { ParentFocusPage } from './pages/parent/ParentFocusPage'
+import { ParentHomeSupportPage } from './pages/parent/ParentHomeSupportPage'
+import { StudentDashboard } from './pages/student/StudentDashboard'
+import { StudentLearningPage } from './pages/student/StudentLearningPage'
+import { StudentPracticePage } from './pages/student/StudentPracticePage'
+import { StudentProgressPage } from './pages/student/StudentProgressPage'
+import { StudentFeedbackPage } from './pages/student/StudentFeedbackPage'
+import { AssessmentDetailPage } from './pages/staff/AssessmentDetailPage'
+import { AssessmentsPage } from './pages/staff/AssessmentsPage'
+import { ClassDetailPage } from './pages/staff/ClassDetailPage'
+import { ClassesPage } from './pages/staff/ClassesPage'
+import { CreateAssessmentPage } from './pages/staff/CreateAssessmentPage'
+import { ImportResultsPage } from './pages/staff/ImportResultsPage'
+import { StudentProfilePage } from './pages/staff/StudentProfilePage'
+import { StudentsPage } from './pages/staff/StudentsPage'
 
 /**
  * Application routes. No authentication guards exist yet (prototype phase);
@@ -17,14 +40,6 @@ function RootRedirect() {
 }
 
 const PLACEHOLDERS: { path: string; title: string }[] = [
-  { path: '/students', title: 'Students' },
-  { path: '/students/:id', title: 'Student Profile' },
-  { path: '/classes', title: 'Classes' },
-  { path: '/classes/:id', title: 'Class Details' },
-  { path: '/assessments', title: 'Assessments' },
-  { path: '/assessments/new', title: 'Create Assessment' },
-  { path: '/assessments/import', title: 'Import Results' },
-  { path: '/assessments/:id', title: 'Assessment Details' },
   { path: '/performance', title: 'Performance' },
   { path: '/diagnostics', title: 'Diagnostics' },
   { path: '/diagnostics/:id', title: 'Diagnostic Report' },
@@ -32,21 +47,6 @@ const PLACEHOLDERS: { path: string; title: string }[] = [
   { path: '/guidance/:id', title: 'Guidance Review' },
   { path: '/curriculum', title: 'Curriculum' },
   { path: '/reports', title: 'Reports' },
-  { path: '/notifications', title: 'Notifications' },
-  { path: '/settings', title: 'Settings' },
-  { path: '/admin/structure', title: 'Academic Structure' },
-  { path: '/admin/users', title: 'Users' },
-  { path: '/admin/teachers', title: 'Teachers' },
-  { path: '/parent/dashboard', title: 'Parent Dashboard' },
-  { path: '/parent/children', title: 'My Children' },
-  { path: '/parent/progress', title: 'Progress' },
-  { path: '/parent/focus', title: 'Current Learning Focus' },
-  { path: '/parent/home-support', title: 'Home Support' },
-  { path: '/student/dashboard', title: 'Student Dashboard' },
-  { path: '/student/learning', title: 'My Learning' },
-  { path: '/student/practice', title: 'Practice' },
-  { path: '/student/progress', title: 'Progress' },
-  { path: '/student/feedback', title: 'Feedback' },
 ]
 
 export default function App() {
@@ -56,6 +56,29 @@ export default function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route element={<AppShell />}>
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/students" element={<StudentsPage />} />
+        <Route path="/students/:id" element={<StudentProfilePage />} />
+        <Route path="/classes" element={<ClassesPage />} />
+        <Route path="/classes/:id" element={<ClassDetailPage />} />
+        <Route path="/assessments" element={<AssessmentsPage />} />
+        <Route path="/assessments/new" element={<CreateAssessmentPage />} />
+        <Route path="/assessments/import" element={<ImportResultsPage />} />
+        <Route path="/assessments/:id" element={<AssessmentDetailPage />} />
+        <Route path="/admin/structure" element={<AcademicStructurePage />} />
+        <Route path="/admin/users" element={<UsersPage />} />
+        <Route path="/admin/teachers" element={<TeachersPage />} />
+        <Route path="/notifications" element={<NotificationsPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/parent/dashboard" element={<ParentDashboard />} />
+        <Route path="/parent/children" element={<ParentChildrenPage />} />
+        <Route path="/parent/progress" element={<ParentProgressPage />} />
+        <Route path="/parent/focus" element={<ParentFocusPage />} />
+        <Route path="/parent/home-support" element={<ParentHomeSupportPage />} />
+        <Route path="/student/dashboard" element={<StudentDashboard />} />
+        <Route path="/student/learning" element={<StudentLearningPage />} />
+        <Route path="/student/practice" element={<StudentPracticePage />} />
+        <Route path="/student/progress" element={<StudentProgressPage />} />
+        <Route path="/student/feedback" element={<StudentFeedbackPage />} />
         {PLACEHOLDERS.map((p) => (
           <Route key={p.path} path={p.path} element={<PagePlaceholder title={p.title} />} />
         ))}
