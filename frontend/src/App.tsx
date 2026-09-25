@@ -5,7 +5,13 @@ import { ROLE_HOME } from './data/users'
 import { LoginPage } from './pages/auth/LoginPage'
 import { DashboardPage } from './pages/shared/DashboardPage'
 import { NotFoundPage } from './pages/shared/NotFoundPage'
-import { PagePlaceholder } from './pages/shared/PagePlaceholder'
+import { CurriculumPage } from './pages/staff/CurriculumPage'
+import { ReportsPage } from './pages/staff/ReportsPage'
+import { PerformancePage } from './pages/staff/PerformancePage'
+import { DiagnosticsPage } from './pages/staff/DiagnosticsPage'
+import { DiagnosticDetailPage } from './pages/staff/DiagnosticDetailPage'
+import { GuidancePage } from './pages/staff/GuidancePage'
+import { GuidanceDetailPage } from './pages/staff/GuidanceDetailPage'
 import { AcademicStructurePage } from './pages/admin/AcademicStructurePage'
 import { UsersPage } from './pages/admin/UsersPage'
 import { TeachersPage } from './pages/admin/TeachersPage'
@@ -39,16 +45,6 @@ function RootRedirect() {
   return <Navigate to={signedIn ? ROLE_HOME[role] : '/login'} replace />
 }
 
-const PLACEHOLDERS: { path: string; title: string }[] = [
-  { path: '/performance', title: 'Performance' },
-  { path: '/diagnostics', title: 'Diagnostics' },
-  { path: '/diagnostics/:id', title: 'Diagnostic Report' },
-  { path: '/guidance', title: 'AI Guidance' },
-  { path: '/guidance/:id', title: 'Guidance Review' },
-  { path: '/curriculum', title: 'Curriculum' },
-  { path: '/reports', title: 'Reports' },
-]
-
 export default function App() {
   return (
     <Routes>
@@ -64,6 +60,13 @@ export default function App() {
         <Route path="/assessments/new" element={<CreateAssessmentPage />} />
         <Route path="/assessments/import" element={<ImportResultsPage />} />
         <Route path="/assessments/:id" element={<AssessmentDetailPage />} />
+        <Route path="/curriculum" element={<CurriculumPage />} />
+        <Route path="/reports" element={<ReportsPage />} />
+        <Route path="/performance" element={<PerformancePage />} />
+        <Route path="/diagnostics" element={<DiagnosticsPage />} />
+        <Route path="/diagnostics/:id" element={<DiagnosticDetailPage />} />
+        <Route path="/guidance" element={<GuidancePage />} />
+        <Route path="/guidance/:id" element={<GuidanceDetailPage />} />
         <Route path="/admin/structure" element={<AcademicStructurePage />} />
         <Route path="/admin/users" element={<UsersPage />} />
         <Route path="/admin/teachers" element={<TeachersPage />} />
@@ -79,9 +82,6 @@ export default function App() {
         <Route path="/student/practice" element={<StudentPracticePage />} />
         <Route path="/student/progress" element={<StudentProgressPage />} />
         <Route path="/student/feedback" element={<StudentFeedbackPage />} />
-        {PLACEHOLDERS.map((p) => (
-          <Route key={p.path} path={p.path} element={<PagePlaceholder title={p.title} />} />
-        ))}
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

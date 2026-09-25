@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import { ConnectivityProvider } from './context/ConnectivityContext'
+import { GuidanceReviewProvider } from './context/GuidanceReviewContext'
 import { NotificationsProvider } from './context/NotificationsContext'
 import { SessionProvider } from './context/SessionContext'
 import { ThemeProvider } from './context/ThemeContext'
@@ -16,9 +17,11 @@ createRoot(document.getElementById('root')!).render(
         <SessionProvider>
           <ConnectivityProvider>
             <NotificationsProvider>
-              <ToastProvider>
-                <App />
-              </ToastProvider>
+              <GuidanceReviewProvider>
+                <ToastProvider>
+                  <App />
+                </ToastProvider>
+              </GuidanceReviewProvider>
             </NotificationsProvider>
           </ConnectivityProvider>
         </SessionProvider>

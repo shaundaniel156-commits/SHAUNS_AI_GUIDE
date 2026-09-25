@@ -52,3 +52,22 @@ introduced later; components should not need to change shape.
 
 The curriculum hierarchy in `src/data/curriculum.ts` is an **illustrative demo structure
 only** and is not official NCDC or Cambridge International content.
+
+## Screens (routes)
+
+| Area | Routes |
+|---|---|
+| Auth | `/login` |
+| Teacher / Admin | `/dashboard`, `/students`, `/students/:id`, `/classes`, `/classes/:id`, `/assessments`, `/assessments/new`, `/assessments/import`, `/assessments/:id`, `/performance`, `/diagnostics`, `/diagnostics/:id`, `/guidance`, `/guidance/:id`, `/curriculum`, `/reports` |
+| Admin only | `/admin/structure`, `/admin/users`, `/admin/teachers` |
+| Parent | `/parent/dashboard`, `/parent/children`, `/parent/progress`, `/parent/focus`, `/parent/home-support` |
+| Student | `/student/dashboard`, `/student/learning`, `/student/practice`, `/student/progress`, `/student/feedback` |
+| All roles | `/notifications`, `/settings` |
+
+## What is UI-only (by design, for this phase)
+
+- Sign-in, password reset, invites, saving settings/scores/assessments — show feedback, persist nothing.
+- Guidance decisions (approve / edit / request revision / override) are held in memory until reload.
+- Excel/CSV import, PDF/CSV export — visual only. Print uses the browser's print dialog.
+- Online / Offline / Syncing indicator — previewable states; no network detection or sync.
+- Theme (light / dark / system) is the only preference that takes effect.
